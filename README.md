@@ -26,7 +26,7 @@ Full sequence future prediction:
 
 <img src="https://github.com/RoryCoulson/LSTM-Stock-Price-Prediction-PyTorch/assets/52762734/45961f17-74ba-4107-9f3e-b77f670aa285"><br/><br/>
 
-Next point prediction. Note these predictions use the true test data unlike the others that make predictions from the output of previous predictions, so this can only be used for next-day predictions:
+Next point prediction: (Effective for predicting volatility, but somewhat misleading when it comes to forecasting the next price point)
 
 <img src="https://github.com/RoryCoulson/LSTM-Stock-Price-Prediction-PyTorch/assets/52762734/10db9bd6-7fa3-43c1-b38d-4cc3ffb2dade">
 
