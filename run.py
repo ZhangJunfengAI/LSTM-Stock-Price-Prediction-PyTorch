@@ -28,7 +28,7 @@ for step in range(STEPS):
         optimizer.zero_grad()
         out = model(train_input)
         train_loss = criterion(out, train_target)
-        print(f'train_loss: {train_loss.item()}')
+        print(f'train loss: {train_loss.item()}')
         train_loss.backward()
         return train_loss
     optimizer.step(closure)

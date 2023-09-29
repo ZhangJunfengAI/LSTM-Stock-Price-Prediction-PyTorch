@@ -31,7 +31,8 @@ def train_test_split(prices, currency, plot=False):
     return train_data, test_data
 
 
-def get_train_data(train_data):
+def get_train_data_split(train_data):
+    # splits out the train data into train_input and train_target
     train_windows = np.empty((len(train_data) - WINDOW_SIZE + 1, WINDOW_SIZE), dtype=np.float32)
     # fill train_windows using a sliding window across the train data
     for i in range(len(train_data) - WINDOW_SIZE + 1):
@@ -45,7 +46,8 @@ def get_train_data(train_data):
     return train_input, train_target
 
 
-def get_test_data(test_data):
+def get_test_data_split(test_data):
+    # splits out the test data into test_input and test_target
     test_prices = test_data.astype(np.float32)
     match PREDICTION_TYPE:
         case PredictionType.NEXT_POINT:
@@ -87,7 +89,7 @@ def load_data(start='2000-01-01', end='2023-09-01', plot=False):
     train_data, test_data = train_test_split(prices, currency, plot=True)
     train_data, test_data = normalize(train_data, test_data, plot=True)
 
-    train_input, train_target = get_train_data(train_data)
-    test_input, test_target = get_test_data(test_data)
+    train_input, train_target = get_train_data_split(train_data)
+    test_input, test_target = get_test_data_split(test_data)
 
     return train_input, train_target, test_input, test_target
