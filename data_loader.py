@@ -4,7 +4,7 @@ import yfinance as yf
 
 from sklearn.preprocessing import MinMaxScaler
 from plot import plot_normalized_data, plot_stock_price_history, plot_train_test_split
-from config import COMPANY_TICKER, PREDICTION_TYPE, TRAIN_SPLIT, PredictionType, WINDOW_SIZE
+from config import COMPANY_TICKER, PREDICTION_TYPE, TRAIN_SPLIT, PredictionType, WINDOW_SIZE, START_DATE, END_DATE
 
 
 def normalize(train_data, test_data, plot=False):
@@ -77,7 +77,7 @@ def get_test_data_split(test_data):
             return test_input, test_target
 
 
-def load_data(start='2000-01-01', end='2023-09-01', plot=False):
+def load_data(start=START_DATE, end=END_DATE, plot=False):
     stock_df = yf.download(COMPANY_TICKER, start=start, end=end)
     currency = yf.Ticker(COMPANY_TICKER).info['currency']
 
